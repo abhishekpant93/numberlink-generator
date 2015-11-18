@@ -6,7 +6,7 @@ var covered = 0;
 
 // Returns a board of the specified size. Each cell of the board is empty.
 function GetEmptyBoard(size) {
-    var board = new Array(size)
+	var board = new Array(size);
     for (var i = 0; i < size; ++i) {
         board[i] = new Array(size);
         for (var j = 0; j < size; ++j) board[i][j] = 0;
@@ -54,23 +54,15 @@ function NumSameColoredNeighbours(board, k, l, clr) {
 function HasIsolatedSquares(board, k, l, clr, isLastNode) {
     var n = board.length;
     if (isLastNode) {
-        if ((k != 0) && (board[k - 1][l] == 0) && (NumAddedNeighbours(board, k - 1, l) == 4) 
-            && (NumSameColoredNeighbours(board, k - 1, l, clr) > 1)) return true;
-        if ((k != n - 1) && (board[k + 1][l] == 0) && (NumAddedNeighbours(board, k + 1, l) == 4) 
-            && (NumSameColoredNeighbours(board, k + 1, l, clr) > 1)) return true;
-        if ((l != 0) && (board[k][l - 1] == 0) && (NumAddedNeighbours(board, k, l - 1) == 4) 
-            && (NumSameColoredNeighbours(board, k, l - 1, clr) > 1)) return true;
-        if ((l != n - 1) && (board[k][l + 1] == 0) && (NumAddedNeighbours(board, k, l + 1) == 4) 
-            && (NumSameColoredNeighbours(board, k, l + 1, clr) > 1)) return true;
+        if ((k != 0) && (board[k - 1][l] == 0) && (NumAddedNeighbours(board, k - 1, l) == 4) && (NumSameColoredNeighbours(board, k - 1, l, clr) > 1)) return true;
+        if ((k != n - 1) && (board[k + 1][l] == 0) && (NumAddedNeighbours(board, k + 1, l) == 4) && (NumSameColoredNeighbours(board, k + 1, l, clr) > 1)) return true;
+        if ((l != 0) && (board[k][l - 1] == 0) && (NumAddedNeighbours(board, k, l - 1) == 4) && (NumSameColoredNeighbours(board, k, l - 1, clr) > 1)) return true;
+        if ((l != n - 1) && (board[k][l + 1] == 0) && (NumAddedNeighbours(board, k, l + 1) == 4) && (NumSameColoredNeighbours(board, k, l + 1, clr) > 1)) return true;
     } else {
-        if ((k != 0) && (board[k - 1][l] == 0) 
-            && (NumAddedNeighbours(board, k - 1, l) == 4)) return true;
-        if ((k != n - 1) && (board[k + 1][l] == 0) 
-            && (NumAddedNeighbours(board, k + 1, l) == 4)) return true;
-        if ((l != 0) && (board[k][l - 1] == 0) 
-            && (NumAddedNeighbours(board, k, l - 1) == 4)) return true;
-        if ((l != n - 1) && (board[k][l + 1] == 0) 
-            && (NumAddedNeighbours(board, k, l + 1) == 4)) return true;
+        if ((k != 0) && (board[k - 1][l] == 0) && (NumAddedNeighbours(board, k - 1, l) == 4)) return true;
+        if ((k != n - 1) && (board[k + 1][l] == 0) && (NumAddedNeighbours(board, k + 1, l) == 4)) return true;
+        if ((l != 0) && (board[k][l - 1] == 0) && (NumAddedNeighbours(board, k, l - 1) == 4)) return true;
+        if ((l != n - 1) && (board[k][l + 1] == 0) && (NumAddedNeighbours(board, k, l + 1) == 4)) return true;
     }
     return false;
 }
@@ -113,8 +105,7 @@ function GetPathExtensionNeighbour(board, i, j, clr) {
             }
             board[i1][j1] = clr;
             // Check whether this neighbour causes isolated empty cells.
-            if (HasIsolatedSquares(board, i, j, clr, false) 
-                || HasIsolatedSquares(board, i1, j1, clr, true)) {
+            if (HasIsolatedSquares(board, i, j, clr, false) || HasIsolatedSquares(board, i1, j1, clr, true)) {
                 board[i1][j1] = 0;
                 continue;
             }
@@ -181,7 +172,7 @@ function AddPath(board_unsolved, board_solved) {
             board_unsolved[nbr[0]][nbr[1]] = pathClr;
             return true;
         }
-        console.log("adding (" + nbr[0] + ", " + nbr[1] + ")"); 
+        console.log("adding (" + nbr[0] + ", " + nbr[1] + ")");
         pathlen += 1;
         covered += 1;
     }
@@ -189,22 +180,23 @@ function AddPath(board_unsolved, board_solved) {
 
 // Returns a random permutation of array using Fisher-Yates method.
 function Shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex ;
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle
-  while (0 !== currentIndex) {
+    // While there remain elements to shuffle
+    while (0 !== currentIndex) {
 
-    // Pick a remaining element
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+        // Pick a remaining element
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
 
-  return array;
+    return array;
 }
 
 // Shuffles the colors on the board so as to not give the user any hints
@@ -213,7 +205,7 @@ function Shuffle(array) {
 function ShuffleColors(board_unsolved, board_solved, numColors) {
     var colors = [];
     for (var i = 1; i <= numColors; i++) {
-       colors.push(i);
+        colors.push(i);
     }
     colors = Shuffle(colors);
     var n = board_unsolved.length;

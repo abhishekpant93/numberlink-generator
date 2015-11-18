@@ -1,109 +1,112 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Numberlink</title>
-        <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'>
-            <link rel="stylesheet" href="css/ladda-themeless.min.css">
-            <link rel='stylesheet' href='css/numberlink.css' type='text/css' />
-        </head>
-        <body>
-            <div class='container'>
-                <div class='page-header' align='center'>
-                    <img src="img/title.png" alt="Numberlink" style="width:500px; height:85px; margin: 5px auto;">
-                </div>
-                <div class='row'>
-                    <div class='col-md-6'>
-                        <div id='numberlink-vis'>
-                            <!-- Game Container -->
-                            <div class="gamerow">
-                                <canvas class="field" id="1-1" width="88" height="88"></canvas>
-                                <canvas class="field" id="1-2" width="88" height="88"></canvas>
-                                <canvas class="field" id="1-3" width="88" height="88"></canvas>
-                                <canvas class="field" id="1-4" width="88" height="88"></canvas>
-                                <canvas class="field" id="1-5" width="88" height="88"></canvas>
-                            </div>
-                            <div class="gamerow">
-                                <canvas class="field" id="2-1" width="88" height="88"></canvas>
-                                <canvas class="field" id="2-2" width="88" height="88"></canvas>
-                                <canvas class="field" id="2-3" width="88" height="88"></canvas>
-                                <canvas class="field" id="2-4" width="88" height="88"></canvas>
-                                <canvas class="field" id="2-5" width="88" height="88"></canvas>
-                            </div>
-                            <div class="gamerow">
-                                <canvas class="field" id="3-1" width="88" height="88"></canvas>
-                                <canvas class="field" id="3-2" width="88" height="88"></canvas>
-                                <canvas class="field" id="3-3" width="88" height="88"></canvas>
-                                <canvas class="field" id="3-4" width="88" height="88"></canvas>
-                                <canvas class="field" id="3-5" width="88" height="88"></canvas>
-                            </div>
-                            <div class="gamerow">
-                                <canvas class="field" id="4-1" width="88" height="88"></canvas>
-                                <canvas class="field" id="4-2" width="88" height="88"></canvas>
-                                <canvas class="field" id="4-3" width="88" height="88"></canvas>
-                                <canvas class="field" id="4-4" width="88" height="88"></canvas>
-                                <canvas class="field" id="4-5" width="88" height="88"></canvas>
-                            </div>
-                            <div class="gamerow">
-                                <canvas class="field" id="5-1" width="88" height="88"></canvas>
-                                <canvas class="field" id="5-2" width="88" height="88"></canvas>
-                                <canvas class="field" id="5-3" width="88" height="88"></canvas>
-                                <canvas class="field" id="5-4" width="88" height="88"></canvas>
-                                <canvas class="field" id="5-5" width="88" height="88"></canvas>
-                            </div>
-                        </div>
+
+<head>
+    <title>Numberlink</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/ladda-themeless.min.css">
+    <link rel='stylesheet' href='css/numberlink.css' type='text/css' />
+</head>
+
+<body>
+    <div class='container'>
+        <div class='page-header' align='center'>
+            <img src="img/title.png" alt="Numberlink" style="width:500px; height:85px; margin: 5px auto;">
+        </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div id='numberlink-vis'>
+                    <!-- Game Container -->
+                    <div class="gamerow">
+                        <canvas class="field" id="1-1" width="88" height="88"></canvas>
+                        <canvas class="field" id="1-2" width="88" height="88"></canvas>
+                        <canvas class="field" id="1-3" width="88" height="88"></canvas>
+                        <canvas class="field" id="1-4" width="88" height="88"></canvas>
+                        <canvas class="field" id="1-5" width="88" height="88"></canvas>
                     </div>
-                    <div class='col-md-6'>
-                        <div class='row'>
-                            <div class='col-md-12'>
-                                <h3><b>Game Rules</b></h3>
-                                <ul>
-                                    <li>Connect the two occurrences of each integer on the board using only horizontal and vertical movements.</li>
-                                    <li>No two different paths are allowed to intersect one another.</li>
-                                    <li>No path may include any solid square.</li>
-                                    <li>All non-solid squares must be filled by the paths.</li>
-                                </ul>
-                                <hr>
-                                <h3><b>Configure Board</b></h3>
-                                <div class="row vspace"></div>
-                                <label class="control-label">Board size:</label>
-                                <div class="input-group step">
-                                    <span class="input-group-btn">
+                    <div class="gamerow">
+                        <canvas class="field" id="2-1" width="88" height="88"></canvas>
+                        <canvas class="field" id="2-2" width="88" height="88"></canvas>
+                        <canvas class="field" id="2-3" width="88" height="88"></canvas>
+                        <canvas class="field" id="2-4" width="88" height="88"></canvas>
+                        <canvas class="field" id="2-5" width="88" height="88"></canvas>
+                    </div>
+                    <div class="gamerow">
+                        <canvas class="field" id="3-1" width="88" height="88"></canvas>
+                        <canvas class="field" id="3-2" width="88" height="88"></canvas>
+                        <canvas class="field" id="3-3" width="88" height="88"></canvas>
+                        <canvas class="field" id="3-4" width="88" height="88"></canvas>
+                        <canvas class="field" id="3-5" width="88" height="88"></canvas>
+                    </div>
+                    <div class="gamerow">
+                        <canvas class="field" id="4-1" width="88" height="88"></canvas>
+                        <canvas class="field" id="4-2" width="88" height="88"></canvas>
+                        <canvas class="field" id="4-3" width="88" height="88"></canvas>
+                        <canvas class="field" id="4-4" width="88" height="88"></canvas>
+                        <canvas class="field" id="4-5" width="88" height="88"></canvas>
+                    </div>
+                    <div class="gamerow">
+                        <canvas class="field" id="5-1" width="88" height="88"></canvas>
+                        <canvas class="field" id="5-2" width="88" height="88"></canvas>
+                        <canvas class="field" id="5-3" width="88" height="88"></canvas>
+                        <canvas class="field" id="5-4" width="88" height="88"></canvas>
+                        <canvas class="field" id="5-5" width="88" height="88"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <h3><b>Game Rules</b></h3>
+                        <ul>
+                            <li>Connect the two occurrences of each integer on the board using only horizontal and vertical movements.</li>
+                            <li>No two different paths are allowed to intersect one another.</li>
+                            <li>No path may include any solid square.</li>
+                            <li>All non-solid squares must be filled by the paths.</li>
+                        </ul>
+                        <hr>
+                        <h3><b>Configure Board</b></h3>
+                        <div class="row vspace"></div>
+                        <label class="control-label">Board size:</label>
+                        <div class="input-group step">
+                            <span class="input-group-btn">
                                     <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <input type="text" name="quant[2]" class="form-control input-number" value="5" min="4" max="15" style="text-align:center;">
-                                    <span class="input-group-btn">
+                            </button>
+                            </span>
+                            <input type="text" name="quant[2]" class="form-control input-number" value="5" min="4" max="15" style="text-align:center;">
+                            <span class="input-group-btn">
                                     <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
                                     <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
-                                <div class="row vspace"></div>
-                                <button type="button" id="new-game" class="btn btn-primary step" onclick="">
-                                New Game
-                                </button>
-                                <div class="row vspace"></div>
-                                <button type="button" id="solve-board" class="btn btn-success ladda-button step" data-style="expand-right" onclick="" disabled>
-                                Solve
-                                </button>
-                                <div class="row vspace"></div>
-                            </div>
+                            </button>
+                            </span>
                         </div>
+                        <div class="row vspace"></div>
+                        <button type="button" id="new-game" class="btn btn-primary step" onclick="">
+                            New Game
+                        </button>
+                        <div class="row vspace"></div>
+                        <button type="button" id="solve-board" class="btn btn-success ladda-button step" data-style="expand-right" onclick="" disabled>
+                            Solve
+                        </button>
+                        <div class="row vspace"></div>
                     </div>
                 </div>
-                <footer align='center'>
-                    Made by <a href="http://www.facebook.com/abhishek.pant1" target="_blank">Abhishek Pant</a> | <a href="http://cse.iitkgp.ac.in" target="_blank">Dept. of Computer Science and Engineering, IIT Kharagpur</a>.
-                </footer>
             </div>
-            <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-            <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.4.0/randomColor.js'></script>
-            <script src="js/spin.min.js"></script>
-            <script src="js/ladda.min.js"></script>
-            <script src='js/board-size-spinner.js'></script>
-            <script src='js/generator.js'></script>
-            <script src='js/render.js'></script>
-            <script src='js/numberlink.js'></script>
-        </body>
-    </html>
+        </div>
+        <footer align='center'>
+            Made by <a href="http://www.facebook.com/abhishek.pant1" target="_blank">Abhishek Pant</a> | <a href="http://cse.iitkgp.ac.in" target="_blank">Dept. of Computer Science and Engineering, IIT Kharagpur</a>.
+        </footer>
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.4.0/randomColor.js'></script>
+    <script src="js/spin.min.js"></script>
+    <script src="js/ladda.min.js"></script>
+    <script src='js/board-size-spinner.js'></script>
+    <script src='js/generator.js'></script>
+    <script src='js/render.js'></script>
+    <script src='js/numberlink.js'></script>
+</body>
+
+</html>

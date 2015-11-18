@@ -9,15 +9,12 @@ var colors_ = {};
 
 // Helper function to print to string using format sequence.
 if (!String.format) {
-  String.format = function(format) {
-    var args = Array.prototype.slice.call(arguments, 1);
-    return format.replace(/{(\d+)}/g, function(match, number) { 
-      return typeof args[number] != 'undefined'
-        ? args[number] 
-        : match
-      ;
-    });
-  };
+    String.format = function(format) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        return format.replace(/{(\d+)}/g, function(match, number) {
+            return typeof args[number] != 'undefined' ? args[number] : match;
+        });
+    };
 }
 
 // Returns the CSS id corresponding to the cell.
@@ -53,7 +50,7 @@ function UpdateBoardDOM(height, width) {
     var cell_width = Math.round(MAX_WIDTH / width) - 2 * border_px;
     var cell_height = Math.round(MAX_HEIGHT / height) - 2 * border_px;
     var cellHTML = String.format(
-        "<canvas class=\"field\" id=\"{2}\" width=\"{0}\" height=\"{1}\"></canvas>", 
+        "<canvas class=\"field\" id=\"{2}\" width=\"{0}\" height=\"{1}\"></canvas>",
         cell_width, cell_height, "{0}");
     var html = "";
     for (var i = 0; i < height; ++i) {
@@ -61,7 +58,7 @@ function UpdateBoardDOM(height, width) {
         for (var j = 0; j < width; ++j) {
             html += String.format(cellHTML, GetCellCSSId(i, j));
         }
-        html += "</div>"
+        html += "</div>";
     }
     $('#numberlink-vis').html(html).show();
 }
