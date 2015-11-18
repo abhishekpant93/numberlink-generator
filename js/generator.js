@@ -74,7 +74,7 @@ function HasIsolatedSquares(board, k, l, clr, isLastNode) {
 function GetPathExtensionNeighbour(board, i, j, clr) {
     var n = board.length;
     var u, v, i1, j1;
-    var u = Math.floor(Math.random() * 4);
+    u = Math.floor(Math.random() * 4);
     for (v = 0; v < 4; ++v) {
         if (++u == 4) u = 0;
         i1 = i;
@@ -97,7 +97,7 @@ function GetPathExtensionNeighbour(board, i, j, clr) {
                 i1 = i + 1;
                 break;
         }
-        // Uncolored neighbour found.
+        // Found an uncolored neighbour.
         if (board[i1][j1] == 0) {
             // Check the color constraint.
             if (clr) {
@@ -125,9 +125,8 @@ function AddPath(board_unsolved, board_solved) {
     // Use the next color.
     ++pathClr;
     // Try and locate uncolored neighboring squares (i,j) and (k,l).
-    s = Math.floor(Math.random() * n * n)
+    s = Math.floor(Math.random() * n * n);
     for (t = 0; t < n * n; ++t) {
-        // Wrap-around row-major search.
         if (++s == n * n) s = 0;
         i = Math.floor(s / n);
         j = s % n;
@@ -199,9 +198,8 @@ function Shuffle(array) {
     return array;
 }
 
-// Shuffles the colors on the board so as to not give the user any hints
-// regarding the length of the path (since by this method, paths generated
-// earlier will be longer).
+// Shuffles the colors on the board since by this method, paths generated
+// earlier will be longer.
 function ShuffleColors(board_unsolved, board_solved, numColors) {
     var colors = [];
     for (var i = 1; i <= numColors; i++) {
@@ -224,9 +222,7 @@ function GenerateBoard(size) {
     var board_solved = GetEmptyBoard(size);
     // Randomized Numberlink board generation strategy. Repeat until all
     // squares are covered and satisfy the constraints.
-    var iters = 0;
     do {
-        ++iters;
         board_unsolved = GetEmptyBoard(size);
         board_solved = GetEmptyBoard(size);
         pathClr = 0;
@@ -235,9 +231,7 @@ function GenerateBoard(size) {
             console.log("    covered = " + covered + ", pathClr = " + pathClr);
         }
         console.log("      covered = " + covered + ", pathClr = " + pathClr);
-        if (iters > 100) break;
     } while (covered < size * size);
-    console.log("iters: " + iters);
     ShuffleColors(board_unsolved, board_solved, pathClr);
     return [board_unsolved, board_solved];
 }
